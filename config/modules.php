@@ -8,8 +8,8 @@
 
 return [
     'gridview' => [ 'class' => '\kartik\grid\Module' ] ,
-     'admin' => [
-            'class' => 'app\modules\admin',
+    'admin' => [
+            'class' => 'mdm\admin\Module',
         ],
      'user' => [
         'class' => 'dektrium\user\Module',
@@ -18,4 +18,8 @@ return [
           'admins' => ['ronash']
     ],
     'rbac' => 'dektrium\rbac\RbacWebModule',
+     'post' => [
+            'class' => 'app\modules\post\Post',
+       
+        ],
     ];
