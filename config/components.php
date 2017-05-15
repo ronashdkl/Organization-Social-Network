@@ -69,6 +69,11 @@ return [
      
     ],
   
-        
+      'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*', // add or remove allowed actions to this list
+        ] ,
+          ],
     ];
 
