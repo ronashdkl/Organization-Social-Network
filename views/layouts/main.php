@@ -11,7 +11,10 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage();
+$admin = (Yii::$app->user->can(Yii::$app->params['AdminRole']))? true:false;
+$guest = (Yii::$app->user->isGuest) ? true:false;
+?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
@@ -29,7 +32,7 @@ AppAsset::register($this);
     
   
     NavBar::begin([
-        'brandLabel' => 'News Reader',
+        'brandLabel' => Yii::$app->params['siteName'],
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -38,10 +41,10 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-         ['label' => 'Room', 'url' => ['/admin/room'], 'visible' => Yii::$app->user->can('Admin')],
-              ['label' => 'Customer', 'url' => ['/admin/customer'], 'visible' => Yii::$app->user->can('Admin')],
-              ['label' => 'Reservation', 'url' => ['/admin/reservation'], 'visible' => Yii::$app->user->can('Admin')],
-              ['label' => 'Users', 'url' => ['/user/admin'], 'visible' => Yii::$app->user->can('Admin')],
+         ['label' => 'Room', 'url' => ['/admin/room'], 'visible' =>$admin],
+              ['label' => 'Customer', 'url' => ['/admin/customer'], 'visible' => $admin],
+              ['label' => 'Reservation', 'url' => ['/admin/reservation'], 'visible' => $admin],
+              ['label' => 'Users', 'url' => ['/user/admin'], 'visible' => $admin],
          Yii::$app->user->isGuest ?
     ['label' => 'Sign in', 'url' => ['/user/security/login']]
             :
