@@ -2,7 +2,7 @@
 //use \yii\web\Request;
 //$baseUrl = str_replace('/web', '', (new Request)->getBaseUrl());
 $params = require(__DIR__ . '/params.php');
-
+$roles = require (__DIR__.'/roles.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
