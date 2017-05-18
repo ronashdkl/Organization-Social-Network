@@ -26,6 +26,10 @@ $config = [
  'modules' => [
    
     'rbac' => 'dektrium\rbac\RbacConsoleModule',
+       'nfy'=>array(
+            'class'=>'vendors\nineinchnick\yii-nfy\NfyModule',
+            'longPolling'=>null,
+        ),
    
 ],
     /*
