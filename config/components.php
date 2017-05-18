@@ -22,7 +22,7 @@ return [
 //            'enableAutoLogin' => true,
 //        ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'error/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -68,12 +68,27 @@ return [
         ]
      
     ],
-  
-      'as access' => [
-        'class' => 'mdm\admin\components\AccessControl',
-        'allowActions' => [
-            'site/*', // add or remove allowed actions to this list
-        ] ,
-          ],
+       'assetManager' => [
+        'bundles' => [
+            'dmstr\web\AdminLteAsset' => [
+                'skin' => 'skin-red-light',
+            ],
+        ],
+    ],
+'view' => [
+        'theme' => [
+            'pathMap' => [
+                '@dektrium/user/views' => '@app/views/user'
+            ],
+        ],
+    ],
+ 
+    
+    //custom component
+//    'getUser' => [
+// 
+//            'class' => 'app\components\UserComponent',
+// 
+//            ],
     ];
 
